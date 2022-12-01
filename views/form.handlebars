@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <title>Document</title>
+          <style>
+        .width{
+            width:150px;
+            padding: 10px;
+            font-weight: 500; 
+        }
+        .position{
+                display:flex;
+                flex-direction: row;
+                justify-content: space-around;
+        }
+        @media screen and (max-width: 480px) {
+        .position{
+                display:flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+        }
+        .last{
+            margin-left:150px;
+            padding: 5px 40px 5px 40px;
+        }
+        
+}
+</style>
+</head>
+<body>
+    {{!-- {{> nav}} --}}
+    {{#if errmsg}}
+    <div class="alert alert-danger">{{errmsg}}</div>
+    {{/if}}
+      {{#if succmsg}}
+    <div class="alert alert-success">{{succmsg}}</div>
+    {{/if}}
+     <div class="position container mt-5">
+     
+        <div>
+        <a class="btn btn-primary width" href="/read" role="button"><i class="bi bi-eye-fill"></i>&nbsp;Read</a>
+        </div>
+        <br><br>
+        <div>
+        <a class="btn btn-primary width"  href="/update" role="button"><i class="bi bi-pencil-fill"></i>&nbsp;Update</a>
+        </div>
+        <br><br>
+        <div>
+        <a class="btn btn-primary width" href="/delete" role="button"><i class="bi bi-trash"></i>&nbsp;Delete</a>
+        </div>
+    </div><br>
+    <div class="container">
+    <form method="post" action="/postdata"><br>
+        Name:<input type="text"  name="name"><br><br>
+        Data: <input type="text" name="data"><br><br>
+        <button>Create</button>
+    </form>
+    </div>
+</body>
+</html>
